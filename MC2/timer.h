@@ -18,26 +18,26 @@
  *******************************************************************************/
 
 typedef enum{
-	Timer0,Timer1,Timer2
+	Timer0, Timer1, Timer2
 }Timer_type;
 
 typedef enum
 {
-	Normal,PWM,CTC,Fast_PWM
+	Normal, CTC
 }Timer_mode;
 
 typedef enum
 {
-	No_clock,No_prescaling,Prescale_8,Prescale_4,Prescale_256,Prescale_1024
+	No_clock,No_prescaling,Prescale_8,Prescale_64,Prescale_256,Prescale_1024
 }Timer_clock;
 
 typedef struct
 {
-		Timer_clock prescale;
 		Timer_type type;
 		Timer_mode mode;
 		uint16 initialvalue;
 		uint16 comparevalue;
+		Timer_clock prescale;
 		void (*callBackPtr)(void);
 }Timer_Config;
 

@@ -26,7 +26,7 @@ static volatile void (*g_Timer2CallBackPtr)(void) = NULL_PTR;
  *                        Interrupt Service Routines                           *
  ******************************************************************************/
 /* Timer0 OVF mode */
-ISR(TIMER0_OVF)
+ISR(TIMER0_OVF_vect)
 {
 	if (g_Timer0CallBackPtr != NULL_PTR) {
 		(*g_Timer0CallBackPtr)();
@@ -34,7 +34,7 @@ ISR(TIMER0_OVF)
 }
 
 /* Timer0 CTC mode */
-ISR(TIMER0_CTC)
+ISR(TIMER0_COMP_vect)
 {
 	if (g_Timer0CallBackPtr != NULL_PTR) {
 		(*g_Timer0CallBackPtr)();
@@ -42,7 +42,7 @@ ISR(TIMER0_CTC)
 }
 
 /* Timer1 OVF mode */
-ISR(TIMER1_OVF)
+ISR(TIMER1_OVF_vect)
 {
 	if (*g_Timer1CallBackPtr != NULL_PTR) {
 		(*g_Timer1CallBackPtr)();
@@ -50,7 +50,7 @@ ISR(TIMER1_OVF)
 }
 
 /* Timer1 CTC mode */
-ISR(TIMER1_CTC)
+ISR(TIMER1_COMPA_vect)
 {
 	if (*g_Timer1CallBackPtr != NULL_PTR)
 	{
@@ -59,14 +59,14 @@ ISR(TIMER1_CTC)
 }
 
 /* Timer2 OVF mode */
-ISR(TIMER2_OVF)
+ISR(TIMER2_OVF_vect)
 {
 	if (g_Timer2CallBackPtr != NULL_PTR) {
 		(*g_Timer2CallBackPtr)();
 	}
 }
 /* Timer2 CTC mode */
-ISR(TIMER2_CTC)
+ISR(TIMER2_COMP_vect)
 {
 	if (g_Timer2CallBackPtr != NULL_PTR) {
 		(*g_Timer2CallBackPtr)();
