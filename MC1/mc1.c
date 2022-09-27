@@ -109,15 +109,14 @@ void DoorOpeningTask(void)
 {
 	g_seconds=0;
 	LCD_clearScreen();
-	while (g_seconds < DOOR_UNLOCKING_PERIOD);
 	LCD_displayStringRowColumn(0, 0, "Opening Door...");
-
+	while (g_seconds < DOOR_UNLOCKING_PERIOD);
 
 	/* let the door be open for 3 seconds */
 	g_seconds = 0;
 	LCD_clearScreen();
-	while (g_seconds < DOOR_LEFT_OPEN_PERIOD);
 	LCD_displayStringRowColumn(0, 0, "Door is now open");
+	while (g_seconds < DOOR_LEFT_OPEN_PERIOD);
 
 	/* hold the system for 15 seconds & display to user that door is locking */
 	g_seconds = 0;

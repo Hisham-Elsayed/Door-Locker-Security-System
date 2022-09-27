@@ -43,8 +43,8 @@ typedef enum
 typedef struct
 {
 	UART_parityMode parity;
-	UART_characterSize size;
 	UART_stopBit stop;
+	UART_characterSize size;
 }UART_configType;
 
 /*******************************************************************************
